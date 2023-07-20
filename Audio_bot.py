@@ -9,6 +9,18 @@ names = ["Mark", "Allen", "kade", "Sean", "Luka", "Jayden", "Mk", "Daniel", "Jos
 # Customer details dictionary
 
 # Welcome message with random names
+def welcome():
+    '''
+    Purpose: To generate a random name from the list and print out
+    a welcome message 
+    Parameters: None
+    Returns: None
+    '''
+    num = randint(0,9)
+    name = (names[num])
+    print("*** Welcome to KSC Audio")
+    print("*** My name is", name, "***")
+    print("***I will be here to help you order your dream audio setup***")
 
 # Validates inputs to cheack if they are blank
 
@@ -31,3 +43,13 @@ names = ["Mark", "Allen", "kade", "Sean", "Luka", "Jayden", "Mk", "Daniel", "Jos
 # Options for new order or to exit
 
 # Main function
+def main():
+    '''
+    Purpose: To run all functions
+    a welcome message 
+    Parameters: None
+    Returns: None
+    '''
+    welcome()
+
+main()
