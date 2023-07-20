@@ -7,6 +7,7 @@ from random import randint
 # List of names
 names = ["Mark", "Allen", "kade", "Sean", "Luka", "Jayden", "Mk", "Daniel", "Joshua" "Holly"]
 # Customer details dictionary
+customer_details = {}
 
 # Welcome message with random names
 def welcome():
@@ -23,8 +24,36 @@ def welcome():
     print("***I will be here to help you order your dream audio setup***")
 
 # Validates inputs to cheack if they are blank
-
+def not_blank(question):
+    valid = False
+    while not valid:
+        responce = input(question)
+        if responce != "":
+            return responce.title()
+        else:
+            print("This can not be blank")
+            
 # Menu for click and collect or delivery
+def order_type():
+    print ("Is your order for click and collect or delivery?")
+    print ("For click and collect please enter 1")
+    print("For delivery please enter 2")
+    while True:
+        try:
+            delivery = int(input("Please enter a number "))
+            if delivery >= 1 and delivery <= 2:
+                if delivery == 1:
+                    print ("Click and collect")
+                    break
+
+                elif delivery == 2:
+                    print ("Delivery")
+                    break
+            else:
+                print("The number must be 1 or 2")
+        except ValueError:
+            print ("that is not a valid number")
+            print ("Please enter 1 or 2")
 
 # Click and collect information - name and phone number
 
