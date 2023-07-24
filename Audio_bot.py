@@ -56,20 +56,42 @@ def order_type():
             print ("Please enter 1 or 2")
 
 # Click and collect information - name and phone number
-
+def pickup_info():
+    question = ("Please enter your name ")
+    customer_details['name'] = not_blank(question)
+    print (customer_details['name'])
+        
+    question = ("Please enter your phone number ")
+    customer_details['phone'] = not_blank(question)
+    print (customer_details['phone'])
+    print(customer_details)
 # Delivery information - name, adress and phone
+
+
 
 # Choose total number of products 
 
+
+
 # List of audio products
+
+
 
 # Order - from store list - print each product with cost
 
+
+
 # Print order out - including if order is for delivery or click and collect and names and prices
+
+
 
 # Ability to cancel or proceed with order
 
+
+
 # Options for new order or to exit
+
+
 
 # Main function
 def main():
