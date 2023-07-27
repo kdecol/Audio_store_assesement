@@ -1,6 +1,8 @@
+#list of names of audio products
 audio_names = ['Sony 12inch subs','Car amp','Sony tweeters','JBL tweeters','JBL single 10inch sub','AUX cord','Pioneer head unit','Double din Sony head unit',
                'Bluetooth audio adapter','Sub install kit','FM transmitter','Quad channel amp']
 
+#list of audio product prices
 audio_prices = [300, 150, 85, 60, 175, 22.50, 425, 465, 30.50, 69.99, 37.70, 230]
 
 #list to store ordered audio products
@@ -17,7 +19,7 @@ def menu():
 menu()
 
 
-#ask for how mnay they would like to order
+#ask for how many audio products they would like to order
 num_audio = 0
 
 
@@ -29,7 +31,7 @@ print ("Due to shortage in stock there is a limit of 12 items available for you 
 
 while True:
     try:
-        num_audio = int(input("How many watches would you like to order? "))
+        num_audio = int(input("How many audio products would you like to order? "))
         if num_audio >= 1 and num_audio <= 12: 
             break
         else: 
@@ -41,13 +43,13 @@ while True:
 
 
 
-#choose watch from menu
-#count down until all watches are ordered
+#choose audio products from menu
+#count down until all audio products are ordered
 for item in range(num_audio):
     while num_audio > 0:
         while True:
             try:
-                audio_ordered = int(input("Please choose your watches by entering the number from the menu "))
+                audio_ordered = int(input("Please choose your audio products by entering the number from the menu "))
                 if audio_ordered >= 1 and audio_ordered <= 12: 
                     break
                 else: 
