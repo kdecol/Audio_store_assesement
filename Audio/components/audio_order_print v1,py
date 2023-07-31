@@ -1,0 +1,11 @@
+#list to store ordered audio watches
+order_list = ['Sony 12inch subs','Car amp','Sony tweeters','JBL tweeters']
+#list to store audio product prices
+order_cost = [300, 150, 85, 60]
+
+
+
+count = 0
+for item in order_list:
+    print("Ordered: {} Cost: ${:.2f}".format(item, order_cost[count]))
+    count = count+1
