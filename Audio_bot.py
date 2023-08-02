@@ -12,7 +12,7 @@ customer_details = {}
 audio_names = ['Sony 12inch subs','Car amp','Sony tweeters','JBL tweeters','JBL single 10inch sub','AUX cord','Pioneer head unit','Double din Sony head unit',
                'Bluetooth audio adapter','Sub install kit','FM transmitter','Quad channel amp']
 #list of audio product prices prices
-audio_prices =  [300, 150, 85, 60, 175, 22.50, 425, 465, 30.50, 69.99, 37.70, 230]
+audio_prices =  [300, 150, 85, 60, 175, 22, 425, 465, 30, 69, 37, 230]
 
 #list to store audio products
 order_list = []
@@ -45,6 +45,7 @@ def not_blank(question):
             
 # Menu for click and collect or delivery
 def order_type():
+    del_pick = ""
     print ("Is your order for click and collect or delivery?")
     print ("For click and collect please enter 1")
     print("For delivery please enter 2")
@@ -54,18 +55,21 @@ def order_type():
             if delivery >= 1 and delivery <= 2:
                 if delivery == 1:
                     print ("Click and collect")
+                    del_pick = "pickup"
                     pickup_info()
                     break
 
                 elif delivery == 2:
                     print ("Delivery")
                     delivery_info()
+                    del_pick = "delivery"
                     break
             else:
                 print("The number must be 1 or 2")
         except ValueError:
             print ("that is not a valid number")
             print ("Please enter 1 or 2")
+    return del_pick
 
 # Click and collect information - name and phone number
 def pickup_info():
@@ -140,12 +144,28 @@ def order_audio():
                     print ("Please enter a number inbetween 1 or 12")
             audio_ordered = audio_ordered-1
             order_list.append(audio_names[audio_ordered])
-            order_list.append(audio_names[audio_ordered])
+            order_cost.append(audio_names[audio_ordered])
             print("{} ${:.2f}" .format(audio_names[audio_ordered],audio_prices[audio_ordered]))
             num_audio = num_audio-1
         
 
 # Order - from store list - print each product with cost
+def print_order(del_pick):
+    total_cost = sum(order_cost) 
+    print("Customer Details")
+    if del_pick == "pick up":
+        print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']}")
+    elif del_pick == "delivery":
+        print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
+    print()
+    print("Order Details")
+    count = 0
+    for item in order_list:
+        print("Ordered: {} Cost: ${:.2f}".format(item, order_cost[count]))
+        count = count+1
+    print()
+    print("Order Cost Details")
+    print(f"Total: ${total_cost}")
 
 
 
@@ -170,9 +190,11 @@ def main():
     Returns: None
     '''
     welcome()
-    order_type()
+    del_pick = order_type()
+    print(del_pick)
     menu()
     order_audio()
+    print_order(del_pick)
    
 
 main()
