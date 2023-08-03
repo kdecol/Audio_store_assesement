@@ -150,6 +150,7 @@ def order_audio():
         
 
 # Order - from store list - print each product with cost
+# Print order out - including if order is for delivery or click and collect and names and prices
 def print_order(del_pick):
     total_cost = sum(order_cost) 
     print("Customer Details")
@@ -170,11 +171,6 @@ def print_order(del_pick):
     print()
     print("Order Cost Details")
     print(f"Total: ${total_cost}")
-
-
-
-# Print order out - including if order is for delivery or click and collect and names and prices
-
 
 
 # Ability to cancel or proceed with order
