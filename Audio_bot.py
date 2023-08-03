@@ -55,8 +55,8 @@ def order_type():
             if delivery >= 1 and delivery <= 2:
                 if delivery == 1:
                     print ("Click and collect")
-                    del_pick = "pickup"
                     pickup_info()
+                    del_pick = "pickup"
                     break
 
                 elif delivery == 2:
@@ -144,7 +144,7 @@ def order_audio():
                     print ("Please enter a number inbetween 1 or 12")
             audio_ordered = audio_ordered-1
             order_list.append(audio_names[audio_ordered])
-            order_cost.append(audio_names[audio_ordered])
+            order_cost.append(audio_prices[audio_ordered])
             print("{} ${:.2f}" .format(audio_names[audio_ordered],audio_prices[audio_ordered]))
             num_audio = num_audio-1
         
@@ -156,6 +156,10 @@ def print_order(del_pick):
     if del_pick == "pick up":
         print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']}")
     elif del_pick == "delivery":
+        print("your order is for Delivery")
+        if len(order_list) < 6:
+            total_cost = total_cost + 12
+            print("You have ordered 5 or less items, a $12 delivery charge will incur")
         print(f"Customer Name: {customer_details['name']} \nCustomer Phone: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
     print()
     print("Order Details")
